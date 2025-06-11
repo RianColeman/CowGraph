@@ -1,29 +1,30 @@
 import java.util.Scanner;
 public class cowGraph{
 
-    // Constants
-    public static final int WIDTH = 80;
-    public static final int HEIGHT = 25;
 
-    // 2D screen buffer
-    public static char[][] screen = new char[HEIGHT][WIDTH];
+    public static int HEIGHT;
+    public static int WIDTH;
+    public static char[][] screen;
 
-    public static void main(String[] args) {
-        System.out.println("Graph!");
+    public static void main(String[] args) {    
+        System.out.println("Enter graph height");
+        Scanner sc = new Scanner(System.in);
+        HEIGHT = sc.nextInt();
+        System.out.println("Enter graph width");
+        WIDTH = sc.nextInt();
+        sc.close();
+        screen =  new char[HEIGHT][WIDTH];
 
         // Initialize screen with spaces
         for (int y = 0; y < HEIGHT; y++) {
             for (int x = 0; x < WIDTH; x++) {
                 screen[y][x] = ' ';
             }
-        }
-        System.out.println("x and y bounds are equal");
-        System.out.println("Enter bounds:");
-        Scanner sc = new Scanner(System.in);
-        int bounds = sc.nextInt();
+    }
+        
         
         setScreen();
-
+        
 
         // Print screen
         for (int y = 0; y < HEIGHT; y++) {
@@ -32,11 +33,17 @@ public class cowGraph{
             }
             System.out.println();
         }
-        System.out.println("                                         \\   ^__^");
-        System.out.println("                                          \\  (oo)\\_______");
-        System.out.println("                                             (__)\\       )\\/\\");
-        System.out.println("                                                 ||----w |");
-        System.out.println("                                                 ||     ||");
+
+        //create string of spaces to properly space cow
+        String spaceBuffer = new String("");
+        for(int i = 0;i<WIDTH/2;i++){
+            spaceBuffer=spaceBuffer+" ";
+        }
+        System.out.println(spaceBuffer+"\\   ^__^");
+        System.out.println(spaceBuffer+" \\  (oo)\\_______");
+        System.out.println(spaceBuffer+"    (__)\\       )\\/\\");
+        System.out.println(spaceBuffer+"         ||----w |");
+        System.out.println(spaceBuffer+"         ||     ||");
 
     }
 
@@ -46,7 +53,7 @@ public class cowGraph{
 
         for (int x = 0; x < WIDTH; x++) {
             screen[midY][x] = '-';
-        }        System.out.println("Enter bounds:")
+        }
         for (int y = 0; y < HEIGHT; y++) {
             screen[y][midX] = '|';
         }
