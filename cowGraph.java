@@ -13,7 +13,8 @@ public class cowGraph{
         System.out.println("Enter graph width");
         WIDTH = sc.nextInt();
         sc.close();
-        screen =  new char[HEIGHT][WIDTH];
+        
+      screen =  new char[HEIGHT][WIDTH];
 
         // Initialize screen with spaces
         for (int y = 0; y < HEIGHT; y++) {
@@ -34,7 +35,7 @@ public class cowGraph{
             System.out.println();
         }
 
-        //create string of spaces to properly space cow
+        // Create string of spaces to print cow midway
         String spaceBuffer = new String("");
         for(int i = 0;i<WIDTH/2;i++){
             spaceBuffer=spaceBuffer+" ";
